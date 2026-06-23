@@ -22,56 +22,34 @@ def aller_a(page):
 if st.session_state.page == "Accueil":
     st.header("Bienvenue !")
     
-    # Nombre de personnes
-    nb_personnes_accueil = st.number_input(
-        "Nombre de personnes", 
-        min_value=1, 
-        max_value=15, 
-        value=nb_personnes,
-        key="nb_personnes_accueil"
-    )
+    nb_personnes_accueil = st.number_input("Nombre de personnes", min_value=1, max_value=15, value=nb_personnes, key="nb_personnes_accueil")
     
     st.divider()
     
-    # Barre de recherche
     st.subheader("🔍 Recherche rapide")
-    recherche = st.text_input("Tape un ingrédient (ex: tomate, courgette)")
-    
-    toutes_recettes = [
-        {"nom": "Pâtes aux courgettes et lardons", "ingredients": ["pâtes", "courgettes", "lardons"]},
-        {"nom": "Omelette aux légumes d'été", "ingredients": ["œufs", "courgettes", "tomates"]},
-        {"nom": "Salade de tomates et mozzarella", "ingredients": ["tomates", "mozzarella", "basilic"]},
-        {"nom": "Riz aux légumes", "ingredients": ["riz", "courgettes", "tomates"]},
-    ]
+    recherche = st.text_input("Tape un ingrédient (ex: tomate)")
     
     if recherche:
-        resultats = [r for r in toutes_recettes if recherche.lower() in str(r["ingredients"]).lower()]
-        if resultats:
-            st.write("**Résultats :**")
-            for r in resultats:
-                st.write(f"- {r['nom']}")
-        else:
-            st.write("Aucune recette trouvée.")
+        st.write("Fonction recherche à développer plus tard...")
     
     st.divider()
     
-    # Boutons de navigation
     st.subheader("Choisis une catégorie :")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
         if st.button("📋 Entrées", use_container_width=True):
-            aller_a("Entrées")
+            aller_a("Entrées_Choix")
         if st.button("🍽️ Plats", use_container_width=True):
-            aller_a("Plats")
+            aller_a("Plats_Choix")
         if st.button("🍰 Desserts", use_container_width=True):
-            aller_a("Desserts")
+            aller_a("Desserts_Choix")
     
     with col2:
         if st.button("🍟 Petit Plaisir", use_container_width=True):
             aller_a("Petit Plaisir")
-        if st.button("🔍 Recherche avancée", use_container_width=True):
+        if st.button("🔍 Recherche", use_container_width=True):
             aller_a("Recherche")
         if st.button("🎲 Générer des menus", use_container_width=True):
             aller_a("Générer des menus")
@@ -84,23 +62,105 @@ if st.session_state.page == "Accueil":
         if st.button("🛒 Liste de courses", use_container_width=True):
             aller_a("Liste de courses")
 
-# ==================== PAGES ====================
-
-elif st.session_state.page == "Entrées":
+# ==================== ENTRÉES ====================
+elif st.session_state.page == "Entrées_Choix":
     st.header("📋 Entrées")
+    st.write("Choisis le moment du repas :")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("☀️ Midi", use_container_width=True):
+            aller_a("Entrées_Midi")
+    with col2:
+        if st.button("🌙 Soir", use_container_width=True):
+            aller_a("Entrées_Soir")
+    
     if st.button("← Retour à l'accueil"):
         aller_a("Accueil")
 
-elif st.session_state.page == "Plats":
+elif st.session_state.page == "Entrées_Midi":
+    st.header("📋 Entrées - Midi")
+    st.write("Entrées plus consistantes pour le midi :")
+    st.write("- Salade de lentilles")
+    st.write("- Velouté de carottes")
+    st.write("- Salade de pois chiches")
+    if st.button("← Retour"):
+        aller_a("Entrées_Choix")
+
+elif st.session_state.page == "Entrées_Soir":
+    st.header("📋 Entrées - Soir")
+    st.write("Entrées plus légères pour le soir :")
+    st.write("- Salade de concombre et yaourt")
+    st.write("- Carpaccio de tomates et mozzarella")
+    st.write("- Radis et beurre")
+    if st.button("← Retour"):
+        aller_a("Entrées_Choix")
+
+# ==================== PLATS ====================
+elif st.session_state.page == "Plats_Choix":
     st.header("🍽️ Plats")
+    st.write("Choisis le moment du repas :")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("☀️ Midi", use_container_width=True):
+            aller_a("Plats_Midi")
+    with col2:
+        if st.button("🌙 Soir", use_container_width=True):
+            aller_a("Plats_Soir")
+    
     if st.button("← Retour à l'accueil"):
         aller_a("Accueil")
 
-elif st.session_state.page == "Desserts":
+elif st.session_state.page == "Plats_Midi":
+    st.header("🍽️ Plats - Midi")
+    st.write("Plats plus consistants pour le midi :")
+    st.write("- Pâtes aux courgettes et lardons")
+    st.write("- Riz aux légumes et œufs")
+    if st.button("← Retour"):
+        aller_a("Plats_Choix")
+
+elif st.session_state.page == "Plats_Soir":
+    st.header("🍽️ Plats - Soir")
+    st.write("Plats plus légers pour le soir :")
+    st.write("- Omelette aux légumes d'été")
+    st.write("- Poêlée de légumes et saucisses (petite quantité)")
+    if st.button("← Retour"):
+        aller_a("Plats_Choix")
+
+# ==================== DESSERTS ====================
+elif st.session_state.page == "Desserts_Choix":
     st.header("🍰 Desserts")
+    st.write("Choisis le moment du repas :")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("☀️ Midi", use_container_width=True):
+            aller_a("Desserts_Midi")
+    with col2:
+        if st.button("🌙 Soir", use_container_width=True):
+            aller_a("Desserts_Soir")
+    
     if st.button("← Retour à l'accueil"):
         aller_a("Accueil")
 
+elif st.session_state.page == "Desserts_Midi":
+    st.header("🍰 Desserts - Midi")
+    st.write("Desserts pour le midi :")
+    st.write("- Compote de pommes")
+    st.write("- Yaourt aux fraises")
+    if st.button("← Retour"):
+        aller_a("Desserts_Choix")
+
+elif st.session_state.page == "Desserts_Soir":
+    st.header("🍰 Desserts - Soir")
+    st.write("Desserts plus légers pour le soir :")
+    st.write("- Fromage blanc aux fruits")
+    st.write("- Yaourt nature")
+    if st.button("← Retour"):
+        aller_a("Desserts_Choix")
+
+# ==================== AUTRES PAGES ====================
 elif st.session_state.page == "Petit Plaisir":
     st.header("🍟 Petit Plaisir")
     if st.button("← Retour à l'accueil"):
@@ -128,6 +188,5 @@ elif st.session_state.page == "Générateur personnalisé":
 
 elif st.session_state.page == "Liste de courses":
     st.header("🛒 Liste de courses")
-    st.write("Ici on affichera la liste de courses plus tard.")
     if st.button("← Retour à l'accueil"):
         aller_a("Accueil")

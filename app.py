@@ -65,153 +65,169 @@ if st.session_state.page == "Accueil":
 
     st.divider()
     
-    # === NOUVEAUX BOUTONS SPÉCIAUX ===
+    # === SECTIONS SPÉCIALES ===
     st.subheader("Sections spéciales :")
     
     col4, col5, col6 = st.columns(3)
     
     with col4:
         if st.button("❄️ Plat froid spéciale Été", use_container_width=True):
-            aller_a("Ete_Froid")
+            aller_a("Ete_Froid_Choix")
     
     with col5:
         if st.button("🔥 Grand chaud spéciale Hiver", use_container_width=True):
-            aller_a("Hiver_Chaud")
+            aller_a("Hiver_Chaud_Choix")
     
     with col6:
         if st.button("🥬 Végétarien", use_container_width=True):
-            aller_a("Vegetarien")
+            aller_a("Vegetarien_Choix")
 
 # ==================== ENTRÉES ====================
 elif st.session_state.page == "Entrées_Choix":
     st.header("📋 Entrées")
-    st.write("Choisis le moment du repas :")
-    
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("☀️ Midi", use_container_width=True):
-            aller_a("Entrées_Midi")
+        if st.button("☀️ Midi", use_container_width=True): aller_a("Entrées_Midi")
     with col2:
-        if st.button("🌙 Soir", use_container_width=True):
-            aller_a("Entrées_Soir")
-    
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+        if st.button("🌙 Soir", use_container_width=True): aller_a("Entrées_Soir")
+    if st.button("← Retour"): aller_a("Accueil")
 
 elif st.session_state.page == "Entrées_Midi":
     st.header("📋 Entrées - Midi")
     st.write("Les entrées adaptées pour le midi apparaîtront ici.")
-    if st.button("← Retour"):
-        aller_a("Entrées_Choix")
+    if st.button("← Retour"): aller_a("Entrées_Choix")
 
 elif st.session_state.page == "Entrées_Soir":
     st.header("📋 Entrées - Soir")
     st.write("Les entrées adaptées pour le soir apparaîtront ici.")
-    if st.button("← Retour"):
-        aller_a("Entrées_Choix")
+    if st.button("← Retour"): aller_a("Entrées_Choix")
 
 # ==================== PLATS ====================
 elif st.session_state.page == "Plats_Choix":
     st.header("🍽️ Plats")
-    st.write("Choisis le moment du repas :")
-    
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("☀️ Midi", use_container_width=True):
-            aller_a("Plats_Midi")
+        if st.button("☀️ Midi", use_container_width=True): aller_a("Plats_Midi")
     with col2:
-        if st.button("🌙 Soir", use_container_width=True):
-            aller_a("Plats_Soir")
-    
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+        if st.button("🌙 Soir", use_container_width=True): aller_a("Plats_Soir")
+    if st.button("← Retour"): aller_a("Accueil")
 
 elif st.session_state.page == "Plats_Midi":
     st.header("🍽️ Plats - Midi")
     st.write("Les plats adaptés pour le midi apparaîtront ici.")
-    if st.button("← Retour"):
-        aller_a("Plats_Choix")
+    if st.button("← Retour"): aller_a("Plats_Choix")
 
 elif st.session_state.page == "Plats_Soir":
     st.header("🍽️ Plats - Soir")
     st.write("Les plats adaptés pour le soir apparaîtront ici.")
-    if st.button("← Retour"):
-        aller_a("Plats_Choix")
+    if st.button("← Retour"): aller_a("Plats_Choix")
 
 # ==================== DESSERTS ====================
 elif st.session_state.page == "Desserts_Choix":
     st.header("🍰 Desserts")
-    st.write("Choisis le moment du repas :")
-    
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("☀️ Midi", use_container_width=True):
-            aller_a("Desserts_Midi")
+        if st.button("☀️ Midi", use_container_width=True): aller_a("Desserts_Midi")
     with col2:
-        if st.button("🌙 Soir", use_container_width=True):
-            aller_a("Desserts_Soir")
-    
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+        if st.button("🌙 Soir", use_container_width=True): aller_a("Desserts_Soir")
+    if st.button("← Retour"): aller_a("Accueil")
 
 elif st.session_state.page == "Desserts_Midi":
     st.header("🍰 Desserts - Midi")
     st.write("Les desserts adaptés pour le midi apparaîtront ici.")
-    if st.button("← Retour"):
-        aller_a("Desserts_Choix")
+    if st.button("← Retour"): aller_a("Desserts_Choix")
 
 elif st.session_state.page == "Desserts_Soir":
     st.header("🍰 Desserts - Soir")
     st.write("Les desserts adaptés pour le soir apparaîtront ici.")
-    if st.button("← Retour"):
-        aller_a("Desserts_Choix")
+    if st.button("← Retour"): aller_a("Desserts_Choix")
 
-# ==================== NOUVELLES PAGES SPÉCIALES ====================
-elif st.session_state.page == "Ete_Froid":
+# ==================== SECTIONS SPÉCIALES (AVEC MIDI / SOIR) ====================
+
+# === ÉTÉ FROID ===
+elif st.session_state.page == "Ete_Froid_Choix":
     st.header("❄️ Plat froid spéciale Été")
-    st.write("Ici apparaîtront les plats froids pour l'été.")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    st.write("Choisis le moment du repas :")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("☀️ Midi", use_container_width=True): aller_a("Ete_Froid_Midi")
+    with col2:
+        if st.button("🌙 Soir", use_container_width=True): aller_a("Ete_Froid_Soir")
+    if st.button("← Retour"): aller_a("Accueil")
 
-elif st.session_state.page == "Hiver_Chaud":
+elif st.session_state.page == "Ete_Froid_Midi":
+    st.header("❄️ Plat froid spéciale Été - Midi")
+    st.write("Plats froids adaptés pour le midi apparaîtront ici.")
+    if st.button("← Retour"): aller_a("Ete_Froid_Choix")
+
+elif st.session_state.page == "Ete_Froid_Soir":
+    st.header("❄️ Plat froid spéciale Été - Soir")
+    st.write("Plats froids adaptés pour le soir apparaîtront ici.")
+    if st.button("← Retour"): aller_a("Ete_Froid_Choix")
+
+# === HIVER CHAUD ===
+elif st.session_state.page == "Hiver_Chaud_Choix":
     st.header("🔥 Grand chaud spéciale Hiver")
-    st.write("Ici apparaîtront les plats chauds pour l'hiver.")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    st.write("Choisis le moment du repas :")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("☀️ Midi", use_container_width=True): aller_a("Hiver_Chaud_Midi")
+    with col2:
+        if st.button("🌙 Soir", use_container_width=True): aller_a("Hiver_Chaud_Soir")
+    if st.button("← Retour"): aller_a("Accueil")
 
-elif st.session_state.page == "Vegetarien":
+elif st.session_state.page == "Hiver_Chaud_Midi":
+    st.header("🔥 Grand chaud spéciale Hiver - Midi")
+    st.write("Plats chauds adaptés pour le midi apparaîtront ici.")
+    if st.button("← Retour"): aller_a("Hiver_Chaud_Choix")
+
+elif st.session_state.page == "Hiver_Chaud_Soir":
+    st.header("🔥 Grand chaud spéciale Hiver - Soir")
+    st.write("Plats chauds adaptés pour le soir apparaîtront ici.")
+    if st.button("← Retour"): aller_a("Hiver_Chaud_Choix")
+
+# === VÉGÉTARIEN ===
+elif st.session_state.page == "Vegetarien_Choix":
     st.header("🥬 Mode Végétarien")
-    st.write("Ici apparaîtront uniquement les recettes végétariennes.")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    st.write("Choisis le moment du repas :")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("☀️ Midi", use_container_width=True): aller_a("Vegetarien_Midi")
+    with col2:
+        if st.button("🌙 Soir", use_container_width=True): aller_a("Vegetarien_Soir")
+    if st.button("← Retour"): aller_a("Accueil")
+
+elif st.session_state.page == "Vegetarien_Midi":
+    st.header("🥬 Mode Végétarien - Midi")
+    st.write("Recettes végétariennes adaptées pour le midi apparaîtront ici.")
+    if st.button("← Retour"): aller_a("Vegetarien_Choix")
+
+elif st.session_state.page == "Vegetarien_Soir":
+    st.header("🥬 Mode Végétarien - Soir")
+    st.write("Recettes végétariennes adaptées pour le soir apparaîtront ici.")
+    if st.button("← Retour"): aller_a("Vegetarien_Choix")
 
 # ==================== AUTRES PAGES ====================
 elif st.session_state.page == "Petit Plaisir":
     st.header("🍟 Petit Plaisir")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    if st.button("← Retour à l'accueil"): aller_a("Accueil")
 
 elif st.session_state.page == "Recherche":
     st.header("🔍 Recherche")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    if st.button("← Retour à l'accueil"): aller_a("Accueil")
 
 elif st.session_state.page == "Générer des menus":
     st.header("🎲 Générer des menus")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    if st.button("← Retour à l'accueil"): aller_a("Accueil")
 
 elif st.session_state.page == "Saisons":
     st.header("🌱 Saisons")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    if st.button("← Retour à l'accueil"): aller_a("Accueil")
 
 elif st.session_state.page == "Générateur personnalisé":
     st.header("🛠️ Générateur personnalisé")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    if st.button("← Retour à l'accueil"): aller_a("Accueil")
 
 elif st.session_state.page == "Liste de courses":
     st.header("🛒 Liste de courses")
-    if st.button("← Retour à l'accueil"):
-        aller_a("Accueil")
+    if st.button("← Retour à l'accueil"): aller_a("Accueil")

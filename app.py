@@ -22,7 +22,7 @@ def aller_a(page):
 if st.session_state.page == "Accueil":
     st.header("Bienvenue !")
     
-    # === Nombre de personnes sur la page d'accueil ===
+    # Nombre de personnes
     nb_personnes_accueil = st.number_input(
         "Nombre de personnes", 
         min_value=1, 
@@ -33,11 +33,10 @@ if st.session_state.page == "Accueil":
     
     st.divider()
     
-    # === Barre de recherche ===
+    # Barre de recherche
     st.subheader("🔍 Recherche rapide")
-    recherche = st.text_input("Tape un ingrédient (ex: tomate, courgette, œuf)")
+    recherche = st.text_input("Tape un ingrédient (ex: tomate, courgette)")
     
-    # Base de données temporaire pour la recherche
     toutes_recettes = [
         {"nom": "Pâtes aux courgettes et lardons", "ingredients": ["pâtes", "courgettes", "lardons"]},
         {"nom": "Omelette aux légumes d'été", "ingredients": ["œufs", "courgettes", "tomates"]},
@@ -52,11 +51,11 @@ if st.session_state.page == "Accueil":
             for r in resultats:
                 st.write(f"- {r['nom']}")
         else:
-            st.write("Aucune recette trouvée avec cet ingrédient.")
+            st.write("Aucune recette trouvée.")
     
     st.divider()
     
-    # === Boutons de navigation ===
+    # Boutons de navigation
     st.subheader("Choisis une catégorie :")
     
     col1, col2, col3 = st.columns(3)
@@ -82,8 +81,11 @@ if st.session_state.page == "Accueil":
             aller_a("Saisons")
         if st.button("🛠️ Générateur personnalisé", use_container_width=True):
             aller_a("Générateur personnalisé")
+        if st.button("🛒 Liste de courses", use_container_width=True):
+            aller_a("Liste de courses")
 
-# ==================== AUTRES PAGES ====================
+# ==================== PAGES ====================
+
 elif st.session_state.page == "Entrées":
     st.header("📋 Entrées")
     if st.button("← Retour à l'accueil"):
@@ -121,5 +123,11 @@ elif st.session_state.page == "Saisons":
 
 elif st.session_state.page == "Générateur personnalisé":
     st.header("🛠️ Générateur personnalisé")
+    if st.button("← Retour à l'accueil"):
+        aller_a("Accueil")
+
+elif st.session_state.page == "Liste de courses":
+    st.header("🛒 Liste de courses")
+    st.write("Ici on affichera la liste de courses plus tard.")
     if st.button("← Retour à l'accueil"):
         aller_a("Accueil")

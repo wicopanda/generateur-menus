@@ -17,7 +17,7 @@ if "page" not in st.session_state:
 
 def aller_a(page):
     st.session_state.page = page
-    st.rerun()   # ← Cette ligne permet de faire un seul clic
+    st.rerun()
 
 # ==================== PAGE D'ACCUEIL ====================
 if st.session_state.page == "Accueil":
@@ -62,6 +62,25 @@ if st.session_state.page == "Accueil":
             aller_a("Générateur personnalisé")
         if st.button("🛒 Liste de courses", use_container_width=True):
             aller_a("Liste de courses")
+
+    st.divider()
+    
+    # === NOUVEAUX BOUTONS SPÉCIAUX ===
+    st.subheader("Sections spéciales :")
+    
+    col4, col5, col6 = st.columns(3)
+    
+    with col4:
+        if st.button("❄️ Plat froid spéciale Été", use_container_width=True):
+            aller_a("Ete_Froid")
+    
+    with col5:
+        if st.button("🔥 Grand chaud spéciale Hiver", use_container_width=True):
+            aller_a("Hiver_Chaud")
+    
+    with col6:
+        if st.button("🥬 Végétarien", use_container_width=True):
+            aller_a("Vegetarien")
 
 # ==================== ENTRÉES ====================
 elif st.session_state.page == "Entrées_Choix":
@@ -146,6 +165,25 @@ elif st.session_state.page == "Desserts_Soir":
     st.write("Les desserts adaptés pour le soir apparaîtront ici.")
     if st.button("← Retour"):
         aller_a("Desserts_Choix")
+
+# ==================== NOUVELLES PAGES SPÉCIALES ====================
+elif st.session_state.page == "Ete_Froid":
+    st.header("❄️ Plat froid spéciale Été")
+    st.write("Ici apparaîtront les plats froids pour l'été.")
+    if st.button("← Retour à l'accueil"):
+        aller_a("Accueil")
+
+elif st.session_state.page == "Hiver_Chaud":
+    st.header("🔥 Grand chaud spéciale Hiver")
+    st.write("Ici apparaîtront les plats chauds pour l'hiver.")
+    if st.button("← Retour à l'accueil"):
+        aller_a("Accueil")
+
+elif st.session_state.page == "Vegetarien":
+    st.header("🥬 Mode Végétarien")
+    st.write("Ici apparaîtront uniquement les recettes végétariennes.")
+    if st.button("← Retour à l'accueil"):
+        aller_a("Accueil")
 
 # ==================== AUTRES PAGES ====================
 elif st.session_state.page == "Petit Plaisir":

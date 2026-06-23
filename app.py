@@ -80,19 +80,13 @@ elif st.session_state.page == "Entrées_Choix":
 
 elif st.session_state.page == "Entrées_Midi":
     st.header("📋 Entrées - Midi")
-    st.write("Entrées plus consistantes pour le midi :")
-    st.write("- Salade de lentilles")
-    st.write("- Velouté de carottes")
-    st.write("- Salade de pois chiches")
+    st.write("Les entrées adaptées pour le midi apparaîtront ici.")
     if st.button("← Retour"):
         aller_a("Entrées_Choix")
 
 elif st.session_state.page == "Entrées_Soir":
     st.header("📋 Entrées - Soir")
-    st.write("Entrées plus légères pour le soir :")
-    st.write("- Salade de concombre et yaourt")
-    st.write("- Carpaccio de tomates et mozzarella")
-    st.write("- Radis et beurre")
+    st.write("Les entrées adaptées pour le soir apparaîtront ici.")
     if st.button("← Retour"):
         aller_a("Entrées_Choix")
 
@@ -114,17 +108,13 @@ elif st.session_state.page == "Plats_Choix":
 
 elif st.session_state.page == "Plats_Midi":
     st.header("🍽️ Plats - Midi")
-    st.write("Plats plus consistants pour le midi :")
-    st.write("- Pâtes aux courgettes et lardons")
-    st.write("- Riz aux légumes et œufs")
+    st.write("Les plats adaptés pour le midi apparaîtront ici.")
     if st.button("← Retour"):
         aller_a("Plats_Choix")
 
 elif st.session_state.page == "Plats_Soir":
     st.header("🍽️ Plats - Soir")
-    st.write("Plats plus légers pour le soir :")
-    st.write("- Omelette aux légumes d'été")
-    st.write("- Poêlée de légumes et saucisses (petite quantité)")
+    st.write("Les plats adaptés pour le soir apparaîtront ici.")
     if st.button("← Retour"):
         aller_a("Plats_Choix")
 
@@ -146,17 +136,13 @@ elif st.session_state.page == "Desserts_Choix":
 
 elif st.session_state.page == "Desserts_Midi":
     st.header("🍰 Desserts - Midi")
-    st.write("Desserts pour le midi :")
-    st.write("- Compote de pommes")
-    st.write("- Yaourt aux fraises")
+    st.write("Les desserts adaptés pour le midi apparaîtront ici.")
     if st.button("← Retour"):
         aller_a("Desserts_Choix")
 
 elif st.session_state.page == "Desserts_Soir":
     st.header("🍰 Desserts - Soir")
-    st.write("Desserts plus légers pour le soir :")
-    st.write("- Fromage blanc aux fruits")
-    st.write("- Yaourt nature")
+    st.write("Les desserts adaptés pour le soir apparaîtront ici.")
     if st.button("← Retour"):
         aller_a("Desserts_Choix")
 

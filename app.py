@@ -17,6 +17,7 @@ if "page" not in st.session_state:
 
 def aller_a(page):
     st.session_state.page = page
+    st.rerun()   # ← Cette ligne permet de faire un seul clic
 
 # ==================== PAGE D'ACCUEIL ====================
 if st.session_state.page == "Accueil":

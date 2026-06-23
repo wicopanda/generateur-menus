@@ -1,4 +1,6 @@
-mport streamlit as st
+Python
+
+import streamlit as st
 
 st.set_page_config(page_title="Générateur de Menus", page_icon="🍽️", layout="wide")
 
@@ -101,7 +103,7 @@ elif st.session_state.page == "Plats_Midi":
 
 elif st.session_state.page == "Plats_Soir":
     st.header("🍽️ Plats - Soir")
-    st.write("Ici apparaîtront les 12 plats adaptés pour le soir.")
+    st.write("Ici apparaîtront les 12 plats adaptées pour le soir.")
     if st.button("← Retour"):
         aller_a("Plats_Choix")
 
@@ -126,7 +128,7 @@ elif st.session_state.page == "Desserts_Midi":
 
 elif st.session_state.page == "Desserts_Soir":
     st.header("🍰 Desserts - Soir")
-    st.write("Ici apparaîtront les 12 desserts adaptés pour le soir.")
+    st.write("Ici apparaîtront les 12 desserts adaptées pour le soir.")
     if st.button("← Retour"):
         aller_a("Desserts_Choix")
 
